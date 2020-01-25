@@ -69,7 +69,9 @@ export default function ProductInfo() {
                                 deleteTooltip: "Удалить",
                                 editTooltip: "Изменить",
                                 editRow: {
-                                    deleteText: "Удалить товар?"
+                                    deleteText: "Удалить товар?",
+                                    saveTooltip: "Сохранить",
+                                    cancelTooltip: "Отмена"
                                 }
                             }
                         }}
