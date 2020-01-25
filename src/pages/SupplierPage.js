@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 import {OutlinedInput, Typography, Box} from "@material-ui/core";
 import {makeStyles} from '@material-ui/core/styles';
 import SearchIcon from '@material-ui/icons/Search';
-import ProductCard from "../components/ProductCard/ProductCard";
 import ListOfProducts from "../components/ListOfProducts/ListOfProducts";
 
 const useStyles = makeStyles(theme => ({
@@ -22,9 +21,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 
-SupplierPage.propTypes = {};
-
-function SupplierPage(props) {
+const SupplierPage = (props) => {
     const classes = useStyles(props);
     const [values, setValues] = useState({
         password: '',
@@ -56,5 +53,7 @@ function SupplierPage(props) {
         </div>
     );
 }
+
+SupplierPage.propTypes = {};
 
 export default SupplierPage;
