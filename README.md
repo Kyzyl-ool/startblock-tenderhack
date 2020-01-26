@@ -1,6 +1,6 @@
 # Chain Metric
 
-[![N|Solid](image/Team.png)](http://startblock.online)
+[![N|Solid](screenshot/p0.png)](http://startblock.online)
 
 # Structure
 
@@ -16,47 +16,42 @@
 
 
 # Проблема
-We are team **StartBlock** and we solved the **TrustMe**  Fantom task on the Serial Hacking Grand Final.
 
-Today there are several problems with evaluating blockchain performance:
-
-- Security
-- Reliability
-- Speed
+![N|Solid](screenshots/p1.png)
 
 
 # Решение
 
-We have created a project in which any user can check the performance of the blockchain on 3.5 and 20 nodes. At the moment, the project is comparing two blockchains (Fantom and Exonum). We carry out a set of transactions through the data of the blockchain and at the output we get a svg file with a comparison of key indicators of the blockchain.
+
+![N|Solid](screenshots/p2.png)
 
 <a href="https://www.youtube.com/watch?v=-3xvlPHu1Rg&feature=youtu.be">Video-presentation of the TrustMe</a>
 
 # Алгоритм совместных покупок
 
-Exonum provides a reliable blockchain creation framework, that can be used as in our example.
-We start several nodes which log information into log files. 
 
-Our next stage code process the information from logs and generate svg files.
-
-Exonum shows good performance on a local machine with nodes communication over localhost network.
-
-TPS is several hundred transactions for small number of nodes. 
-Consensus time is about 0.01 seconds for small number of nodes.
+![N|Solid](screenshots/p3.png)
 
 # Дополнительный функционал
 
-Fantom blockchain can be easily configured for interaction with our svg-generation code.
 
-The timestamped transaction information needs to be logged in files which then will be processed to generate svg.
-
-![N|Solid](image/svg.png)
+![N|Solid](screenshots/p4.png)
 
 # Демо
 
-At this stage, we use rust to generate svg and in a convenient human-readable form to track the key parameters of the blockchain, namely: number of nodes, TPS , time to finality, CPU usage, memory usage, disk usage. The program reads these parameters from the logging that generate blockchains. 
+![N|Solid](screenshots/p6.png)
+
+![N|Solid](screenshots/1.png)
+
+![N|Solid](screenshots/2.png)
+
+![N|Solid](screenshots/3.png)
+
+![N|Solid](screenshots/4.png)
+
+![N|Solid](screenshots/5.png)
 
 # Техническое описание
-В папке `src` расположен исходный код Frontend-части. Использована библиотека React, готовые компоненты взяты из Material UI.
 
 # Инструкция по установке
 Requirements:
@@ -70,28 +65,7 @@ For running nodes on your local machine
 3. ./launch.sh %number of nodes%
 4. Open a browser at address stated in terminal
 
-Frontend:
-Для запуска в development mode:
-1. `yarn install`
-2. `yarn start`
-
-Для сборки проекта в production mode:
-1. `yarn install`
-2. `yarn build`
-
-
 
 # Команда
 
-**TrustMe** is a complete complete product for checking the main indicators of the blockchain
-
-<a href="https://www.youtube.com/watch?v=-3xvlPHu1Rg&feature=youtu.be">Video-presentation of the TrustMe</a>
-
-![N|Solid](image/Screenshot.png)
-
-
-We implemented all this within the framework of the hackathon CryptoBazar Serial Hacking with the active interaction of the whole team!
-
-# Team
-
-[![N|Solid](image/Team.png)](http://startblock.online)
+[![N|Solid](screenshots/p5.png)](http://startblock.online)
