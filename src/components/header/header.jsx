@@ -30,10 +30,10 @@ const Header = () => {
     return (
         <div className="header">
             <Box fontSize="h6.fontSize">
-                <NavLink to="/main" style={{textDecoration: "none"}}><div className="prod-name">Startblock</div></NavLink>
+                <NavLink to="/main" style={{textDecoration: "none"}}><div className="prod-name">Chain++</div></NavLink>
             </Box>
             <div className="user-info">
-                <div className="user-name">Антон Печеркин</div>
+                <div className="user-name">Анна Чухнина</div>
                 <img className="user-photo" src={User}/>
                 <div className="logout-button"
                      onClick={() => logout()}
