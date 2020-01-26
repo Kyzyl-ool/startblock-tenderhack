@@ -26,8 +26,10 @@ export default function ProductInfo() {
             {title: 'Цена', field: 'price', type: 'numeric'}
         ],
         data: [
-            {name: 'Product1', quantity: 1, price: 1987},
-            {name: 'Product2', quantity: 1, price: 1987},
+            {name: 'Карандаши', quantity: 100, price: 500},
+            {name: 'Ручка', quantity: 1000, price: 10000},
+            {name: 'Бумага Svetocopy', quantity: 10, price: 24000},
+            {name: 'Бумага Цветная', quantity: 12, price: 1000},
         ],
     });
 
@@ -40,11 +42,18 @@ export default function ProductInfo() {
             <Typography variant="h4" gutterBottom>
                 Информация о закупке
             </Typography>
+            <Grid item xs={12}>
+                <TextField
+                    id="name"
+                    name="name"
+                    label="Меаксимальная цена"
+                    fullWidth
+                />
+            </Grid>
             <Grid container spacing={3}>
                 <Grid item xs={12}>
                     <TextField
                         select
-                        label="Категория"
                         value={currency}
                         onChange={handleChange}
                         helperText="Выберите категорию товара"
@@ -133,10 +142,21 @@ export default function ProductInfo() {
                     />
                 </Grid>
                 <Grid item xs={12}>
+                    <TextField
+                        id="datetime-local"
+                        type="datetime-local"
+                        label="Дата доставки"
+                        fullWidth
+                        InputLabelProps={{
+                            shrink: true,
+                        }}
+                    />
+                </Grid>
+                <Grid item xs={12}>
                     <FormLabel component="legend">Тип закупки</FormLabel>
                     <RadioGroup>
-                        <FormControlLabel value="one" control={<Radio />} label="Единоразовая" />
-                        <FormControlLabel value="two" control={<Radio />} label="Регулярная" />
+                        <FormControlLabel value="one" control={<Radio/>} label="Единоразовая"/>
+                        <FormControlLabel value="two" control={<Radio/>} label="Регулярная"/>
                     </RadioGroup>
                 </Grid>
             </Grid>

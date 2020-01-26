@@ -8,6 +8,9 @@ import Stepper from "@material-ui/core/Stepper/Stepper";
 import CircularProgress from "@material-ui/core/CircularProgress/CircularProgress";
 import ProductGridList from "../components/productGridList/ProductGridList";
 import ProductInfo from "../components/productInfo/productInfo";
+import Box from "@material-ui/core/Box/Box";
+import RightDrawer from "../components/RightDrawer/RightDrawer";
+import ListOfOrders from "../components/ListOfOrders/ListOfOrders";
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -23,6 +26,21 @@ const useStyles = makeStyles(theme => ({
         marginTop: theme.spacing(1),
         marginBottom: theme.spacing(1),
     },
+    filters: {
+        position: "sticky",
+        top: 0,
+        border: "none",
+        flexShrink: 0
+    },
+    stepper: {
+        boxShadow: "0 -5px 5px -5px rgba(0,0,0,0.5)",
+        position: "sticky",
+        bottom: 0,
+        width: "100%"
+    },
+    orders: {
+        width: "calc(100% - 40vh)"
+    }
 }));
 
 function getSteps() {
@@ -49,7 +67,12 @@ export default function WizardPage() {
             case 1:
                 return <ProductInfo/>;
             case 2:
-                return <div/>;
+                return <Box className={classes.filters} display={'flex'}>
+                    <Box className={classes.orders}>
+                        <ListOfOrders/>
+                    </Box>
+                    <RightDrawer/>
+                </Box>;
             case 3:
                 return <div/>;
             default:
@@ -115,7 +138,7 @@ export default function WizardPage() {
             <div className="wizard-wrapper">
                 {getStepContent(activeStep)}
             </div>
-            <Stepper nonLinear activeStep={activeStep}>
+            <Stepper className={classes.stepper} nonLinear activeStep={activeStep}>
                 {steps.map((label, index) => (
                     <Step key={label}>
                         <StepButton onClick={handleStep(index)} completed={completed[index]}>
