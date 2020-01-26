@@ -52,6 +52,8 @@
 ![N|Solid](screenshots/5.png)
 
 # Техническое описание
+В папке `src` расположен исходный код Frontend-части. Использована библиотека React, готовые компоненты взяты из Material UI.
+
 
 # Инструкция по установке
 Requirements:
@@ -64,6 +66,15 @@ For running nodes on your local machine
 2. cargo insstall --path .
 3. ./launch.sh %number of nodes%
 4. Open a browser at address stated in terminal
+
+Frontend:
+Для запуска в development mode:
+1. `yarn install`
+2. `yarn start`
+
+Для сборки проекта в production mode:
+1. `yarn install`
+2. `yarn build`
 
 
 # Команда
