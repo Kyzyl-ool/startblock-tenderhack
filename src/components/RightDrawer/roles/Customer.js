@@ -47,7 +47,7 @@ function Customer(props) {
                     <b>Фильтры:</b>
                 </Typography>
                 <Typography>
-                    Поиск товара:
+                    Поиск заказа:
                 </Typography>
                 <FormControl style={{
                     marginTop: 8,
@@ -104,7 +104,7 @@ function Customer(props) {
                 <TextField
                     id="name"
                     name="name"
-                    label="Меаксимальная цена"
+                    label="Максимальная цена"
                     fullWidth
                 />
             </Box>

@@ -161,7 +161,7 @@ export default function WizardPage() {
                         onClick={handleNext}
                         className={classes.button}
                     >
-                        Далее
+                        {activeStep === 2 ? "Ожидать 3 дня" : "Далее"}
                     </Button>
                 </div>
             )}
