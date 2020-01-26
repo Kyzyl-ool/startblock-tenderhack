@@ -22,10 +22,9 @@
 
 # Решение
 
+<a href="https://youtu.be/RNiuAhxZ-Cc">Видео-демонстрация решения</a>
 
 ![N|Solid](screenshots/p2.png)
-
-<a href="https://www.youtube.com/watch?v=-3xvlPHu1Rg&feature=youtu.be">Video-presentation of the TrustMe</a>
 
 # Алгоритм совместных покупок
 
@@ -38,6 +37,8 @@
 ![N|Solid](screenshots/p4.png)
 
 # Демо
+
+<a href="https://youtu.be/RNiuAhxZ-Cc">Видео-демонстрация решения</a>
 
 ![N|Solid](screenshots/p6.png)
 
@@ -78,5 +79,7 @@ Frontend:
 
 
 # Команда
+
+<a href="https://youtu.be/RNiuAhxZ-Cc">Видео-демонстрация решения</a>
 
 [![N|Solid](screenshots/p5.png)](http://startblock.online)
