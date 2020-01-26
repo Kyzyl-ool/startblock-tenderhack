@@ -56,6 +56,7 @@ The timestamped transaction information needs to be logged in files which then w
 At this stage, we use rust to generate svg and in a convenient human-readable form to track the key parameters of the blockchain, namely: number of nodes, TPS , time to finality, CPU usage, memory usage, disk usage. The program reads these parameters from the logging that generate blockchains. 
 
 # Техническое описание
+В папке `src` расположен исходный код Frontend-части. Использована библиотека React, готовые компоненты взяты из Material UI.
 
 # Инструкция по установке
 Requirements:
@@ -68,6 +69,16 @@ For running nodes on your local machine
 2. cargo insstall --path .
 3. ./launch.sh %number of nodes%
 4. Open a browser at address stated in terminal
+
+Frontend:
+Для запуска в development mode:
+1. `yarn install`
+2. `yarn start`
+
+Для сборки проекта в production mode:
+1. `yarn install`
+2. `yarn build`
+
 
 
 # Команда
