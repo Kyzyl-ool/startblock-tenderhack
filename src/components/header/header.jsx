@@ -33,7 +33,7 @@ const Header = () => {
                 <NavLink to="/main" style={{textDecoration: "none"}}><div className="prod-name">Chain++</div></NavLink>
             </Box>
             <div className="user-info">
-                <div className="user-name">Григорий Мельников</div>
+                <div className="user-name">Анна Чухнина</div>
                 <img className="user-photo" src={User}/>
                 <div className="logout-button"
                      onClick={() => logout()}
