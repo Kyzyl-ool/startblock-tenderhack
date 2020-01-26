@@ -1,6 +1,6 @@
 # Chain Metric
 
-[![N|Solid](screenshot/p0.png)](http://startblock.online)
+[![N|Solid](screenshots/p0.png)](http://startblock.online)
 
 # Structure
 
