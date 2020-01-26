@@ -21,7 +21,7 @@ export const products = [
             'Соответствие гост р 57641-2017: Да\n' +
             'Толщина бумаги: 104',
         type: 'Канцелярские товары',
-        contractsAmount: 8,
+        contractsAmount: 3,
     },
     {
         id: 1,

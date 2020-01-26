@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 import {makeStyles, useTheme} from "@material-ui/core";
 import ChartProvider from "../components/chart/ChartProvider";
 import Typography from "@material-ui/core/Typography/Typography";
-import Rating from '@material-ui/lab/Rating';
 import Box from "@material-ui/core/Box/Box";
 import AppBar from "@material-ui/core/AppBar/AppBar";
 import Tabs from "@material-ui/core/Tabs";
@@ -12,7 +11,12 @@ import {activityData} from "../stubs/stabFile";
 import Button from "@material-ui/core/Button";
 import {products} from "../stubs/supplierpage";
 import Highcharts from 'highcharts';
+import Dialog from "@material-ui/core/Dialog";
+import DialogTitle from "@material-ui/core/DialogTitle";
+import DialogContent from "@material-ui/core/DialogContent";
+import DialogContentText from "@material-ui/core/DialogContentText";
 
+export const PRICE_DECREASE = 10;
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -33,6 +37,31 @@ const useStyles = makeStyles(theme => ({
     terminal: {
         width: '100vw',
         padding: 'none'
+    },
+    avatar: {
+        height: '160px',
+        width: '160px',
+        borderRadius: '4px',
+        boxShadow: '1px 1px 4px 1px rgba(0,0,0,0.5)',
+        padding: '16px'
+    },
+    headContainer: {
+        display: 'grid',
+        gridTemplateColumns: '1fr 2fr 1fr',
+        gridTemplateRows: '1fr',
+        alignItems: 'center',
+        justifyItems: 'center',
+        margin: theme.spacing(2, 0)
+    },
+    headAvatar: {
+        gridArea: '1/1/1/1',
+    },
+    headInfo: {
+        gridArea: '1/2/1/2',
+    },
+    headActions: {
+        gridArea: '1/3/1/3',
+        textAlign: 'center',
     }
 }));
 
@@ -48,37 +77,8 @@ function TabPanel(props) {
             </Container>
         case 0: {
             return <Container hidden={value !== index}>
-                <Box display={'flex'} p={2} mt={2} justifyContent={'space-between'} >
-                    <Box display={'flex'} flexDirection={'column'} alignItems={'center'} >
-                        <Typography>
-                            Дата загрузки:
-                        </Typography>
-                        <Typography>
-                            <b>{new Date().toLocaleDateString()}</b>
-                        </Typography>
-                    </Box>
-                    <Box display={'flex'} flexDirection={'column'} alignItems={'center'} >
-                        <Typography>
-                            Дата последнего обновления:
-                        </Typography>
-                        <Typography>
-                            <b>{new Date().toLocaleDateString()}</b>
-                        </Typography>
-                    </Box>
-                    <Box display={'flex'} flexDirection={'column'} alignItems={'center'} >
-                        <Typography>
-                            Суммарное кол-во скачиваний:
-                        </Typography>
-                        <Typography>
-                            <b>32</b>
-                        </Typography>
-                    </Box>
-                </Box>
                 <div style={{height: "200px", padding: "12px"}}>
                     <ChartProvider chart={buildActivityGraphProductMetrics()}/>
-                </div>
-                <div style={{height: "200px", padding: "12px"}}>
-                    <ChartProvider chart={buildPriceGraph()}/>
                 </div>
             </Container>
         }
@@ -98,21 +98,45 @@ function TabPanel(props) {
 
 const mapButtonstateToButton = (state, onClick) => {
     switch (state) {
+        case -1: {
+            return null;
+        }
         case 0: {
             return <Button variant={"contained"} color={"secondary"} fullWidth={true}
-                    onClick={onClick}>
+                           onClick={onClick}>
                 Участвовать в аукционе
             </Button>
         }
         case 1: {
             return <Button variant={"contained"} color={"secondary"} disabled={true} fullWidth={true}
-                    >
+            >
                 Отправка&nbsp;заявки...
             </Button>
         }
         case 2: {
             return null;
         }
+        case 3: {
+            return <Button variant={"contained"} color={"secondary"} disabled={true} fullWidth={true}
+            >
+                Вы участвуете
+            </Button>;
+        }
+        case 4: {
+            return <Button variant={"contained"} color={"secondary"} fullWidth={true}
+                           onClick={onClick}
+            >
+                Принять тендер
+            </Button>
+        }
+        case 5: {
+            return <Button variant={"contained"} color={"secondary"} disabled={true} fullWidth={true}
+            >
+                Тендер принят
+            </Button>;
+        }
+        default:
+            return null;
     }
 }
 
@@ -121,31 +145,114 @@ export function Details({id}) {
     const [activeTab, setActiveTab] = React.useState(0);
     const theme = useTheme();
     const [buyState, setBuyState] = useState(0)
-    const handleBuy = () => {
-        setBuyState(1);
+    const handleBuy = (newState) => {
+        setBuyState(newState - 1);
         setTimeout(() => {
-            setBuyState(2)
+            setBuyState(newState)
         }, 2000)
     }
     const [showTerminal, setShowTerminal] = useState(false)
+    const [showDialog, setShowDialog] = useState(false);
+    if (showDialog && buyState !== 5) setBuyState(5);
 
     return (
         <div className={classes.root}>
-            <Box paddingLeft="16px" m={2} display={'flex'} justifyContent={'space-evenly'} >
-                <Box mb={2}>
-                    <Typography variant="h5" paragraph={true}>{products[id].name}</Typography>
+            <Box className={classes.headContainer}>
+                <Box className={classes.headAvatar}>
+                    <img src={products[id].avatarSrc} alt={'Product'} className={classes.avatar}/>
                 </Box>
-                <Box display={'flex'} flexDirection={'column'} alignItems={'center'} flexGrow={2} alignSelf={'flex-start'}>
+                <Box className={classes.headInfo}>
+                    <Typography variant="h5" paragraph={true}>{products[id].name}</Typography>
+                    <Typography>
+                        <b>Заказчики, участвующие в тендере:</b>
+                    </Typography>
+                    <Typography>
+                        ИП&nbsp;Алексеенко&nbsp;М.&nbsp;А.
+                    </Typography>
+                    <Typography>
+                        ИП&nbsp;Матренок&nbsp;Ф.&nbsp;М.
+                    </Typography>
+                    <Typography>
+                        ИП&nbsp;Соболева&nbsp;А.В.
+                    </Typography>
+                </Box>
+                <Box className={classes.headActions}
+                >
                     {buyState === 0 || buyState === 1 ? <Typography variant={"h4"}>
-                        {products[id].price}&nbsp;₽
-                    </Typography> : <Box><Typography variant={"h6"} align={"center"}>
-                        {products[id].price}&nbsp;₽
-                    </Typography> <br /> <Button variant={"outlined"} color={"primary"}>Предложить максимально низкую цену ({products[id].price-10}&nbsp;₽)</Button> </Box>}
+                        {products[id].price - (buyState >= 4 ? PRICE_DECREASE : 0)}&nbsp;₽
+                    </Typography> : <Box><Typography variant={"h4"} align={"center"}>
+                        {products[id].price - (buyState >= 4 ? PRICE_DECREASE : 0)}&nbsp;₽
+                    </Typography> <br/>
+                        {buyState === 2 &&
+                        <Button onClick={() => handleBuy(4)} variant={"outlined"} color={"primary"}>Участвовать в
+                            котировочной сессии с шагом в 0.5&nbsp;₽(мин. цена для
+                            заказчиков {products[id].price - PRICE_DECREASE}&nbsp;₽)</Button>}
+                    </Box>
+                    }
                     <Box mt={1}>
                         {
-                            mapButtonstateToButton(buyState, buyState === 0 ? handleBuy : () => setShowTerminal(true))
+                            mapButtonstateToButton(buyState, buyState === 0 ? () => handleBuy(2) : () => setShowDialog(true))
                         }
                     </Box>
+                    <Box m={1}>
+                        {buyState >= 4 ? <Typography variant={"caption"}>
+                            У вас самое выгодное предложение в аукционе.
+                            После принятия тендера вы обязуетесь реализовать доставку товара.
+                        </Typography> : null}
+                    </Box>
+                    <Dialog
+                        open={showDialog}
+                        onClose={() => setShowDialog(false)}
+                    >
+                        <DialogTitle>
+                            Информация о принятом тендере
+                        </DialogTitle>
+                        <DialogContent>
+                            <DialogContentText color={"textPrimary"}>
+                                <Box mb={2}>
+                                    <Typography variant={"h5"}>
+                                        <b>Вы приняли тендер у следующих заказчиков:</b>
+                                    </Typography>
+                                    <Typography>
+                                        ИП&nbsp;Алексеенко&nbsp;М.&nbsp;А.
+                                    </Typography>
+                                    <Typography>
+                                        ИП&nbsp;Матренок&nbsp;Ф.&nbsp;М.
+                                    </Typography>
+                                    <Typography>
+                                        ИП&nbsp;Соболева&nbsp;А.В.
+                                    </Typography>
+                                    <br/>
+                                    <Typography>
+                                        <b>Предоставленные заказчиками адреса доставки:</b>
+                                    </Typography>
+                                    <Typography>
+                                        152600, г. Зеленчукская, ул. Телевизионный 2-й пер, дом 16, квартира 301
+                                    </Typography><Typography>
+                                    617565, г. Баган, ул. 22-я линия, дом 14, квартира 112
+                                </Typography><Typography>
+                                    164760, г. Марьяновка, ул. Речная (Кировский), дом 16, квартира 430
+                                </Typography>
+                                    <br/>
+                                    <Typography>
+                                        <b>Заказчики в скором времени получат уведомление о принятии тендера.</b>
+                                    </Typography>
+                                    <Typography>
+                                        <b>Контактные данные для связи:</b>
+                                    </Typography>
+                                    <Typography>
+                                        +7 (908) 548-84-31
+                                    </Typography>
+                                    <Typography>
+                                        +7 (954) 132-46-28
+                                    </Typography>
+                                    <Typography>
+                                        +7 (919) 566-42-48
+                                    </Typography>
+                                </Box>
+                            </DialogContentText>
+                        </DialogContent>
+                    </Dialog>
                 </Box>
             </Box>
             <AppBar position="static" color="default">
@@ -159,7 +266,7 @@ export function Details({id}) {
                     variant="fullWidth"
                     aria-label="full width tabs example"
                 >
-                    <Tab label="Технический анализ" {...a11yProps(0)}/>
+                    <Tab label="Прогноз заказов" {...a11yProps(0)}/>
                     <Tab label="Описание" {...a11yProps(1)}/>
                 </Tabs>
             </AppBar>
@@ -231,14 +338,14 @@ function buildActivityGraphProductMetrics() {
             height: 200
         },
         title: {
-            text: "Востребованность продукта"
+            text: "Прогноз заказов"
         },
         xAxis: {
             type: 'datetime'
         },
         yAxis: {
             title: {
-                text: 'Кол-во скачиваний'
+                text: 'Активность'
             }
         },
         legend: {
@@ -274,61 +381,6 @@ function buildActivityGraphProductMetrics() {
         series: [{
             type: 'area',
             name: 'Активность',
-            data: activityData
-        }]
-    }
-}
-
-function buildPriceGraph() {
-    return {
-        chart: {
-            zoomType: 'x',
-            height: 200
-        },
-        title: {
-            text: "График изменения цены"
-        },
-        xAxis: {
-            type: 'datetime'
-        },
-        yAxis: {
-            title: {
-                text: 'Цена'
-            }
-        },
-        legend: {
-            enabled: false
-        },
-        plotOptions: {
-            area: {
-                fillColor: {
-                    linearGradient: {
-                        x1: 0,
-                        y1: 0,
-                        x2: 0,
-                        y2: 1
-                    },
-                    stops: [
-                        [0, Highcharts.getOptions().colors[0]],
-                        [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
-                    ]
-                },
-                marker: {
-                    radius: 2
-                },
-                lineWidth: 1,
-                states: {
-                    hover: {
-                        lineWidth: 1
-                    }
-                },
-                threshold: null
-            }
-        },
-
-        series: [{
-            type: 'area',
-            name: 'Цена',
             data: activityData
         }]
     }

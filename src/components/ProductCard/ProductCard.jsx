@@ -71,7 +71,7 @@ const ProductCard = ({avatarSrc, description, price: cost, contractsAmount, type
                         </Box>
                         <Box>
                             <Typography>
-                                <b>Кол-во предложений:</b>
+                                <b>Кол-во заказчиков:</b>
                             </Typography>
                             <Typography variant={"h5"}>
                                 {contractsAmount}
