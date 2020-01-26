@@ -69,7 +69,7 @@ const ProductCard = ({avatarSrc, description, price: cost, contractsAmount, type
                                 {cost}&nbsp;₽&nbsp;/&nbsp;{pricefor}
                             </Typography>
                             <Typography>
-                                <b>Удельная стоимость:</b>
+                                <b>Прибыль с контракта на основе оферты:</b>
                             </Typography>
                             <Typography variant={"h5"}>
                                 {Number(cost/17).toFixed(2)}&nbsp;₽

@@ -167,13 +167,13 @@ export function Details({id}) {
                         <b>Заказчики, участвующие в тендере:</b>
                     </Typography>
                     <Typography>
-                        ИП&nbsp;Алексеенко&nbsp;М.&nbsp;А.
+                        ИП&nbsp;Алексеенко&nbsp;М.&nbsp;А. – <b>{Number(products[id].price*0.7).toFixed(2)}&nbsp;₽</b>
                     </Typography>
                     <Typography>
-                        ИП&nbsp;Матренок&nbsp;Ф.&nbsp;М.
+                        ИП&nbsp;Матренок&nbsp;Ф.&nbsp;М. – <b>{Number(products[id].price*0.2).toFixed(2)}&nbsp;₽</b>
                     </Typography>
                     <Typography>
-                        ИП&nbsp;Соболева&nbsp;А.В.
+                        ИП&nbsp;Соболева&nbsp;А.В. – <b>{Number(products[id].price*0.1).toFixed(2)}&nbsp;₽</b>
                     </Typography>
                 </Box>
                 <Box className={classes.headActions}
