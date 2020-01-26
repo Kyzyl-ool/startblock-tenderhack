@@ -20,7 +20,7 @@ const useStyles = makeStyles(theme => ({
     },
     gridList: {
         width: 800,
-        height: 520,
+        height: 400,
         padding: 4
     },
     tile: {

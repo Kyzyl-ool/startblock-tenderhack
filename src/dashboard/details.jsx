@@ -8,7 +8,7 @@ import AppBar from "@material-ui/core/AppBar/AppBar";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Container from "@material-ui/core/Container/Container";
-import {activityData} from "../stabs/stabFile";
+import {activityData} from "../stubs/stabFile";
 import Button from "@material-ui/core/Button";
 import {products} from "../stubs/supplierpage";
 import Highcharts from 'highcharts';
