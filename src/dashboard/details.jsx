@@ -43,21 +43,8 @@ function TabPanel(props) {
         case 1:
             return <Container hidden={value !== index}>
                 <Box paddingLeft="16px" marginTop="16px">
-                    <div style={{display: "flex", height: "200px", justifyContent: "space-between"}}>
-                        <div style={{width: "25%"}}>
-                            <ChartProvider chart={buildPieChartConfig("ЦПУ", 2, 4, "ядра")}/>
-                        </div>
-                        <div style={{width: "25%"}}>
-                            <ChartProvider chart={buildPieChartConfig("ОЗУ", 5.2, 4, "Гб")}/>
-                        </div>
-                        <div style={{width: "25%"}}>
-                            <ChartProvider chart={buildPieChartConfig("ПЗУ", 7, 8, "Гб")}/>
-                        </div>
-                    </div>
+                    <Typography display="inline" style={{whiteSpace: 'pre-line'}} >{products[props.id].description}</Typography>
                 </Box>
-                <div style={{height: "100px", padding: "12px"}}>
-                    <ChartProvider chart={buildActivityGraph()}/>
-                </div>
             </Container>
         case 0: {
             return <Container hidden={value !== index}>
@@ -114,13 +101,13 @@ const mapButtonstateToButton = (state, onClick) => {
         case 0: {
             return <Button variant={"contained"} color={"secondary"} fullWidth={true}
                     onClick={onClick}>
-                Купить
+                Участвовать в аукционе
             </Button>
         }
         case 1: {
             return <Button variant={"contained"} color={"secondary"} disabled={true} fullWidth={true}
                     >
-                Идет&nbsp;покупка
+                Отправка&nbsp;заявки...
             </Button>
         }
         case 2: {
@@ -147,21 +134,13 @@ export function Details({id}) {
             <Box paddingLeft="16px" m={2} display={'flex'} justifyContent={'space-evenly'} >
                 <Box mb={2}>
                     <Typography variant="h5" paragraph={true}>{products[id].name}</Typography>
-                    <Box>
-                        <Typography display="inline">Описание: </Typography>
-                        <Typography display="inline">{products[id].description}</Typography>
-                    </Box>
-                    <Box display="flex">
-                        <Typography display="inline">Оценка:</Typography>
-                        <Rating name="read-only" value={products[id].averageRate} readOnly/>
-                    </Box>
                 </Box>
                 <Box display={'flex'} flexDirection={'column'} alignItems={'center'} flexGrow={2} alignSelf={'flex-start'}>
                     {buyState === 0 || buyState === 1 ? <Typography variant={"h4"}>
                         {products[id].price}&nbsp;₽
                     </Typography> : <Box><Typography variant={"h6"} align={"center"}>
-                        Продукт куплен
-                    </Typography> <br /> <Button variant={"outlined"} color={"primary"}>Связаться с поддержкой</Button> </Box>}
+                        {products[id].price}&nbsp;₽
+                    </Typography> <br /> <Button variant={"outlined"} color={"primary"}>Предложить максимально низкую цену ({products[id].price-10}&nbsp;₽)</Button> </Box>}
                     <Box mt={1}>
                         {
                             mapButtonstateToButton(buyState, buyState === 0 ? handleBuy : () => setShowTerminal(true))
@@ -180,30 +159,14 @@ export function Details({id}) {
                     variant="fullWidth"
                     aria-label="full width tabs example"
                 >
-                    <Tab label="Продуктовые характеристики" {...a11yProps(0)}/>
-                    <Tab label="Технические параметры" {...a11yProps(1)}/>
-                    <Tab disabled={buyState !== 2} label="Терминал " {...a11yProps(2)}/>
+                    <Tab label="Технический анализ" {...a11yProps(0)}/>
+                    <Tab label="Описание" {...a11yProps(1)}/>
                 </Tabs>
             </AppBar>
-            <TabPanel value={activeTab} index={0} dir={theme.direction}>
+            <TabPanel id={id} value={activeTab} index={0} dir={theme.direction}>
                 Item One
             </TabPanel>
-            <TabPanel value={activeTab} index={1} dir={theme.direction}>
-
-            </TabPanel>
-            <TabPanel value={activeTab} index={2} dir={theme.direction}>
-                <Box>
-                    {
-                        buyState === 0 || buyState === 1 ? <Typography>
-                            Вы ещё не купили продукт
-                        </Typography> : <Box>
-                            {!showTerminal && <Button variant={"contained"} color={"default"} fullWidth={true}
-                                                      onClick={() => setShowTerminal(true)}>
-                                Подключиться&nbsp;по&nbsp;SSH
-                            </Button>}
-                        </Box>
-                    }
-                </Box>
+            <TabPanel id={id} value={activeTab} index={1} dir={theme.direction}>
             </TabPanel>
         </div>
     )
