@@ -1,68 +1,86 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Chain Metric
 
-## Available Scripts
+[![N|Solid](image/Team.png)](http://startblock.online)
 
-In the project directory, you can run:
+# Structure
 
-### `yarn start`
+<ol type="1" style="font-size: x-large;">
+  <li> <a href="https://github.com/Kyzyl-ool/startblock-tenderhack#проблема">Проблема</a>
+  <li> <a href="https://github.com/Kyzyl-ool/startblock-tenderhack#решение">Решение</a>
+  <li> <a href="https://github.com/Kyzyl-ool/startblock-tenderhack#алгоритм-совместных-покупок">Алгоритм совместных покупок</a>
+  <li> <a href="https://github.com/Kyzyl-ool/startblock-tenderhack#дополнительный-функционал">Дополнительный функционал</a>
+  <li> <a href="https://github.com/Kyzyl-ool/startblock-tenderhack#демо">Демо</a>
+  <li> <a href="https://github.com/Kyzyl-ool/startblock-tenderhack#техническое-описание">Техническое описание</a>
+  <li> <a href="https://github.com/Kyzyl-ool/startblock-tenderhack#инструкция-по-установке">Инструкция по установке</a>
+  <li> <a href="https://github.com/Kyzyl-ool/startblock-tenderhack#команда">Команда</a>
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+# Проблема
+We are team **StartBlock** and we solved the **TrustMe**  Fantom task on the Serial Hacking Grand Final.
 
-### `yarn test`
+Today there are several problems with evaluating blockchain performance:
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Security
+- Reliability
+- Speed
 
-### `yarn build`
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# Решение
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+We have created a project in which any user can check the performance of the blockchain on 3.5 and 20 nodes. At the moment, the project is comparing two blockchains (Fantom and Exonum). We carry out a set of transactions through the data of the blockchain and at the output we get a svg file with a comparison of key indicators of the blockchain.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<a href="https://www.youtube.com/watch?v=-3xvlPHu1Rg&feature=youtu.be">Video-presentation of the TrustMe</a>
 
-### `yarn eject`
+# Алгоритм совместных покупок
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Exonum provides a reliable blockchain creation framework, that can be used as in our example.
+We start several nodes which log information into log files. 
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Our next stage code process the information from logs and generate svg files.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Exonum shows good performance on a local machine with nodes communication over localhost network.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+TPS is several hundred transactions for small number of nodes. 
+Consensus time is about 0.01 seconds for small number of nodes.
 
-## Learn More
+# Дополнительный функционал
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Fantom blockchain can be easily configured for interaction with our svg-generation code.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+The timestamped transaction information needs to be logged in files which then will be processed to generate svg.
 
-### Code Splitting
+![N|Solid](image/svg.png)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+# Демо
 
-### Analyzing the Bundle Size
+At this stage, we use rust to generate svg and in a convenient human-readable form to track the key parameters of the blockchain, namely: number of nodes, TPS , time to finality, CPU usage, memory usage, disk usage. The program reads these parameters from the logging that generate blockchains. 
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+# Техническое описание
 
-### Making a Progressive Web App
+# Инструкция по установке
+Requirements:
+1. rustc 1.39.0-nightly (97e58c0d3 2019-09-20)
+2. exonum
+3. fantom
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+For running nodes on your local machine
+1. cd backend
+2. cargo insstall --path .
+3. ./launch.sh %number of nodes%
+4. Open a browser at address stated in terminal
 
-### Advanced Configuration
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+# Команда
 
-### Deployment
+**TrustMe** is a complete complete product for checking the main indicators of the blockchain
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+<a href="https://www.youtube.com/watch?v=-3xvlPHu1Rg&feature=youtu.be">Video-presentation of the TrustMe</a>
 
-### `yarn build` fails to minify
+![N|Solid](image/Screenshot.png)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+We implemented all this within the framework of the hackathon CryptoBazar Serial Hacking with the active interaction of the whole team!
+
+# Team
+
+[![N|Solid](image/Team.png)](http://startblock.online)
