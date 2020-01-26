@@ -20,9 +20,9 @@ function Customer(props) {
         <>
             <Box>
                 <Box mb={1}>
-                <Typography variant={"h5"}>
-                    <b>Фильтры:</b>
-                </Typography>
+                    <Typography variant={"h5"}>
+                        <b>Фильтры:</b>
+                    </Typography>
                 </Box>
                 <Box mb={1}>
                     <TextField label={'Вид товара'} variant={"outlined"}/>
