@@ -1,162 +1,114 @@
 export const products = [
     {
         id: 0,
-        name: 'Цифровая обработка звука',
-        tariff: 'бессрочно',
-        price: 100000,
-        price2: 100,
-        avatarSrc: 'https://hholdorf.files.wordpress.com/2015/09/physics-the-nature-of-sound.jpg',
-        description: 'Данный продукт представляет собой библиотеку для обработки звуковых файлов.',
-        RAM: 2.7,
-        cores: 2,
-        performance: 2,
-        memory: 20,
-        keywords: ['Sound', 'Music', 'MP3', 'Voice Recognition'],
-        averageRate: 4,
-        type: 'библиотека'
+        name: 'Бумага для офисной техники SvetoCopy (А3, 80г/м2, белизна 146%, 500 листов) -',
+        price: 510.43,
+        pricefor: 'штука',
+        avatarSrc: 'https://images.ru.prom.st/657677797_bumaga-ofisnaya-a4.jpg',
+        description: 'Производитель: International Paper\n' +
+            'Вид продукции: Товары\n' +
+            'Вид товаров: Бумага\n' +
+            'Белизна: 146\n' +
+            'Плотность бумаги: 80\n' +
+            'Вид бумаги для офисной техники: Форматная\n' +
+            'Артикул: 28993\n' +
+            'Сертифицирована по экологическим стандартам FSC и EU Ecolabel: Нет\n' +
+            'Штук в коробке: 5\n' +
+            'Страна происхождения: Россия\n' +
+            'Количество листов в пачке: 500\n' +
+            'Непрозрачность бумаги: 91\n' +
+            'Формат листов: А3\n' +
+            'Соответствие гост р 57641-2017: Да\n' +
+            'Толщина бумаги: 104',
+        type: 'Канцелярские товары',
+        contractsAmount: 8,
     },
     {
         id: 1,
-        name: 'Генерация лиц несуществующих людей',
-        tariff: 'бессрочно',
-        price: 50000,
-        price2: 1000,
-        avatarSrc: 'https://cameralabs.org/media/lab18/12/21-2/iskusstvennyy-intellekt-sozdaet-portrety-nesuschestvuyuschih-lyudey_4.jpg',
-        description: 'Данный продукт представляет собой библиотеку для генерации лиц несуществующих людей в хорошем качестве',
-        RAM: 5,
-        cores: 1,
-        performance: 1,
-        memory: 10,
-        keywords: ['ML', 'CV', 'Python'],
-        averageRate: 4,
-        type: 'библиотека'
+        name: 'Калькулятор настольный CITIZEN бухг. SDC-444S 12 разряд. Dual Power',
+        price: 597.70,
+        pricefor: 'штука',
+        avatarSrc: 'https://old.zakupki.mos.ru/api/Core/Thumbnail/134309506/300/300',
+        description: 'Производитель: ООО СИДИСИ РУС\n' +
+            'Вес изделия: 0.209\n' +
+            'Гарантийный срок: 12\n' +
+            'Модель: SDC-444S\n' +
+            'Цвет: Черный\n' +
+            'Тип применения: с увеличенными кнопками\n' +
+            'Тип размера: полноразмерный\n' +
+            'Страна происхождения: Филиппины\n' +
+            'Принадлежность к тст: оборудование не требует установки/запуска\n' +
+            'Размеры (дхшхв): 199x153x30 ММ\n' +
+            'Вычисление квадратного корня: Нет\n' +
+            'Вычисление налога: Нет\n' +
+            'Коррекция вычислений: Нет\n' +
+            'Расчет процентов: Нет\n' +
+            'Пересчет курсов валют: Нет',
+        type: 'Канцелярские товары',
+        contractsAmount: 5,
     },
     {
         id: 2,
-        name: 'Мессенджер с высокой степенью шифрования',
-        tariff: 'ежедневный',
-        price: 5000,
-        price2: 200,
-        avatarSrc: 'https://www.pngkey.com/png/detail/443-4438515_the-best-ressource-of-free-emoji-png-clipart.png',
-        description: 'Это решение представляет собой проект для надежного обмена текстовыми и фаловыми сообщениями.',
-        RAM: 1,
-        cores: 1,
-        performance: 1,
-        memory: 2,
-        keywords: ['Cryptography', 'Python', 'HTML'],
-        averageRate: 5,
-        type: 'продукт'
+        name: 'Набор настольный канцелярский Офисмаг',
+        price: 92957.41,
+        pricefor: '20 шт',
+        avatarSrc: 'https://old.zakupki.mos.ru/api/Core/Thumbnail/159755689/300/300',
+        description: 'Производитель: Офисмаг\n' +
+            'Вид продукции: Товары\n' +
+            'Вид товаров: Офисные принадлежности\n' +
+            'Вид офисных принадлежностей: Настольные наборы\n' +
+            'Количество предметов: 13\n' +
+            'Особенности: Десять отделений\n' +
+            'Цвет: черный\n' +
+            'Ширина упаковки: 152\n' +
+            'Высота упаковки: 155\n' +
+            'Глубина упаковки: 135\n' +
+            'Упаковка: картон\n' +
+            'Состав набора: Ручка шариковая, Карандаш чернографитный (2 шт.), Точилка для карандашей, Степлер для скоб №10, Скобы №10, Нож канцелярский, Линейка 15 см, Ножницы, Скрепки канцелярские, Кнопки силовые, Ластик, Блок для записи.\n' +
+            'Вращающийся: Да\n' +
+            'Сетчатый: Нет\n' +
+            'Страна происхождения: Китай',
+        type: 'Канцелярские товары',
+        contractsAmount: 12,
     },
     {
         id: 3,
-        name: 'Центральная часть библиотеки для реализации дополненной реальности.',
-        tariff: 'бессрочно',
-        price: 5000,
-        price2: 0,
-        avatarSrc: 'https://www.ittechnologynews24.com/wp-content/uploads/2019/07/AR-VR.jpg',
-        description: 'С помощью этой библиотеки можно создавать решения в сфере AR',
-        RAM: 2.7,
-        cores: 4,
-        performance: 2,
-        memory: 60,
-        keywords: ['AI', 'ML', 'CV', 'Python', 'C++'],
-        averageRate: 3,
-        type: 'библиотека'
+        name: 'Ручка шариковая подарочная в футляре поворотная Мозаика 592363',
+        price: 240.00,
+        pricefor: 'штука',
+        avatarSrc: 'https://old.zakupki.mos.ru/api/Core/Thumbnail/1813713772/300/300',
+        description: 'Производитель: NoName\n' +
+            'Состав набора: шариковая ручка\n' +
+            'Количество предметов: 1\n' +
+            'Цвет чернил: синий\n' +
+            'Толщина линии письма: 0.5\n' +
+            'Наличие футляра: Да\n' +
+            'Материал деталей отделки: металл\n' +
+            'Материал футляра: пластик\n' +
+            'Размер футляра, мм (дхшхв): Нет\n' +
+            'Цвет корпуса: черный/белый\n' +
+            'Вид ручки: шариковая\n' +
+            'Вид механизма: автоматический\n' +
+            'Материал корпуса: металл\n' +
+            'Коллекция: нет',
+        type: 'Канцелярские товары',
+        contractsAmount: 3,
     },
     {
         id: 4,
-        name: 'Система контроля электроэнергии в доме',
-        tariff: 'бессрочно',
-        price: 100000,
-        price2: 1000,
-        avatarSrc: 'https://northcyprussale.ru/uploads/s/d/o/n/don2antj3c4t/img/full_FzgLDdhq.jpg',
-        description: 'Здесь реализован функционал для контроля электроэнергии (в том числе домашей) для девайсов Apple Home.',
-        RAM: 1,
-        cores: 1,
-        performance: 1,
-        memory: 10,
-        keywords: ['Energetics', 'Radiotechnics', 'ML', 'C', 'C++'],
-        averageRate: 2,
-        type: 'библиотека'
-    },
-    {
-        id: 5,
-        name: 'Цифровая обработка звука',
-        tariff: 'бессрочно',
-        price: 100000,
-        price2: 100,
-        avatarSrc: 'https://thefinanser.com/wp-content/uploads/2019/10/Product.png',
-        description: 'Данный продукт представляет собой библиотеку для обработки звуковых файлов.',
-        RAM: 2.7,
-        cores: 2,
-        performance: 2,
-        memory: 20,
-        keywords: ['A', 'D', 'C', 'D', 'E', 'R'],
-        averageRate: 4,
-        type: 'библиотека'
-    },
-    {
-        id: 6,
-        name: 'Цифровая обработка звука',
-        tariff: 'бессрочно',
-        price: 100000,
-        price2: 100,
-        avatarSrc: 'https://thefinanser.com/wp-content/uploads/2019/10/Product.png',
-        description: 'Данный продукт представляет собой библиотеку для обработки звуковых файлов.',
-        RAM: 2.7,
-        cores: 2,
-        performance: 2,
-        memory: 20,
-        keywords: ['A', 'D', 'C', 'D', 'E', 'R'],
-        averageRate: 4,
-        type: 'библиотека'
-    },
-    {
-        id: 7,
-        name: 'Цифровая обработка звука',
-        tariff: 'бессрочно',
-        price: 100000,
-        price2: 100,
-        avatarSrc: 'https://thefinanser.com/wp-content/uploads/2019/10/Product.png',
-        description: 'Данный продукт представляет собой библиотеку для обработки звуковых файлов.',
-        RAM: 2.7,
-        cores: 2,
-        performance: 2,
-        memory: 20,
-        keywords: ['A', 'D', 'C', 'D', 'E', 'R'],
-        averageRate: 4,
-        type: 'библиотека'
-    },
-    {
-        id: 8,
-        name: 'Цифровая обработка звука',
-        tariff: 'бессрочно',
-        price: 100000,
-        price2: 100,
-        avatarSrc: 'https://thefinanser.com/wp-content/uploads/2019/10/Product.png',
-        description: 'Данный продукт представляет собой библиотеку для обработки звуковых файлов.',
-        RAM: 2.7,
-        cores: 2,
-        performance: 2,
-        memory: 20,
-        keywords: ['A', 'D', 'C', 'D', 'E', 'R'],
-        averageRate: 4,
-        type: 'библиотека'
-    },
-    {
-        id: 9,
-        name: 'Цифровая обработка звука',
-        tariff: 'бессрочно',
-        price: 100000,
-        price2: 100,
-        avatarSrc: 'https://thefinanser.com/wp-content/uploads/2019/10/Product.png',
-        description: 'Данный продукт представляет собой библиотеку для обработки звуковых файлов.',
-        RAM: 2.7,
-        cores: 2,
-        performance: 2,
-        memory: 20,
-        keywords: ['A', 'D', 'C', 'D', 'E', 'R'],
-        averageRate: 4,
-        type: 'библиотека'
+        name: 'Карандаш механический ATTACHE Grip 0,7мм цвет ассорти.',
+        price: 15.15,
+        pricefor: 'штука',
+        avatarSrc: 'https://old.zakupki.mos.ru/api/Core/Thumbnail/139886018/300/300',
+        description: 'Производитель: Attache\n' +
+            'Диаметр грифеля: 0.7\n' +
+            'Наличие ластика: Да\n' +
+            'Наличие резиновой манжетки: Да\n' +
+            'Артикул: 140907\n' +
+            'Страна происхождения: Китай\n' +
+            'Схема вложения: 10\n' +
+            'Убирающийся механизм: Нет',
+        type: 'Канцелярские товары',
+        contractsAmount: 6,
     },
 ]

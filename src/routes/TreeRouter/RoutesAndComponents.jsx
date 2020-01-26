@@ -1,12 +1,12 @@
 import React from "react";
 import SupplierPage from "../../pages/SupplierPage";
 import WizardPage from "../../pages/WizardPage";
-
+import {Details} from "../../dashboard/details";
 
 export const firstLevelRoutes = [
     {
         name: 'product',
-        component: ({id}) => <SupplierPage/>
+        component: ({id}) => <Details id={id}/>
     }
 ]
 

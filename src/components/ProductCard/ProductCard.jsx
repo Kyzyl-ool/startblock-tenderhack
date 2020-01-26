@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {Box, makeStyles, Paper, Typography} from "@material-ui/core";
-import Chip from "@material-ui/core/Chip";
 
 const useStyles = makeStyles(theme => ({
     productCard: {
@@ -14,11 +13,11 @@ const useStyles = makeStyles(theme => ({
         gridTemplateColumns: '4fr 1fr'
     },
     avatar: {
-        height: '100px',
-        width: '100px',
-        objectFit: 'cover',
+        height: '160px',
+        width: '160px',
         borderRadius: '4px',
-        boxShadow: '1px 1px 4px 1px rgba(0,0,0,0.5)'
+        boxShadow: '1px 1px 4px 1px rgba(0,0,0,0.5)',
+        padding: '16px'
     },
     item1: {
         gridArea: '0/0/0/0',
@@ -31,7 +30,7 @@ const useStyles = makeStyles(theme => ({
 }))
 
 
-const ProductCard = ({avatarSrc, description, price: cost, averageRate, type, keywords}) => {
+const ProductCard = ({avatarSrc, description, price: cost, contractsAmount, type, name, pricefor}) => {
     const classes = useStyles()
 
     return (
@@ -43,10 +42,13 @@ const ProductCard = ({avatarSrc, description, price: cost, averageRate, type, ke
                         <Box mx={1}>
                             <Box mx={1} mb={1}>
                                 <Typography>
+                                    <b>{name}</b>
+                                </Typography>
+                                <Typography>
                                     <b>Описание:</b>
                                 </Typography>
-                                <Box ml={1}>
-                                    <Typography variant={"body2"}>
+                                <Box ml={1} >
+                                    <Typography variant={"body2"} style={{whiteSpace: "pre-line"}}>
                                         {description}
                                     </Typography>
                                 </Box>
@@ -64,29 +66,17 @@ const ProductCard = ({avatarSrc, description, price: cost, averageRate, type, ke
                                 <b>Стоимость:</b>
                             </Typography>
                             <Typography variant={"h5"}>
-                                {cost} ₽
+                                {cost}&nbsp;₽&nbsp;/&nbsp;{pricefor}
                             </Typography>
                         </Box>
                         <Box>
                             <Typography>
-                                <b>Ср. оценка:</b>
+                                <b>Кол-во предложений:</b>
                             </Typography>
                             <Typography variant={"h5"}>
-                                {averageRate}/5
+                                {contractsAmount}
                             </Typography>
                         </Box>
-                    </Box>
-                </Box>
-                <Box>
-                    <Typography>
-                        Ключевые слова:
-                    </Typography>
-                    <Box p={1} display={'flex'} flexWrap={'wrap'} >
-                        {
-                            keywords.map(value => (<Box mr={1}><Chip
-                                label={value}
-                            /></Box>))
-                        }
                     </Box>
                 </Box>
             </Paper>
@@ -101,7 +91,8 @@ ProductCard.propTypes = {
     cost: PropTypes.number,
     averageRate: PropTypes.number,
     type: PropTypes.string,
-    keywords: PropTypes.arrayOf(PropTypes.string)
+    keywords: PropTypes.arrayOf(PropTypes.string),
+    name: PropTypes.string
 };
 
 export default ProductCard;
