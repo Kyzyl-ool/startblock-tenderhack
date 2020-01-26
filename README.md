@@ -2,6 +2,14 @@
 
 [![N|Solid](screenshots/p0.png)](http://startblock.online)
 
+Демо:
+
+<a href="http://35.225.213.38/wizard">Личный кабинет поставщика</a>
+
+<a href="http://35.225.213.38/main">Личный кабинет заказчика</a>
+
+<a href="https://youtu.be/RNiuAhxZ-Cc">Видео-демонстрация решения</a>
+
 # Structure
 
 <ol type="1" style="font-size: x-large;">
@@ -22,6 +30,12 @@
 
 # Решение
 
+Демо:
+
+<a href="http://35.225.213.38/wizard">Личный кабинет поставщика</a>
+
+<a href="http://35.225.213.38/main">Личный кабинет заказчика</a>
+
 <a href="https://youtu.be/RNiuAhxZ-Cc">Видео-демонстрация решения</a>
 
 ![N|Solid](screenshots/p2.png)
@@ -37,6 +51,12 @@
 ![N|Solid](screenshots/p4.png)
 
 # Демо
+
+Демо:
+
+<a href="http://35.225.213.38/wizard">Личный кабинет поставщика</a>
+
+<a href="http://35.225.213.38/main">Личный кабинет заказчика</a>
 
 <a href="https://youtu.be/RNiuAhxZ-Cc">Видео-демонстрация решения</a>
 
@@ -57,16 +77,6 @@
 
 
 # Инструкция по установке
-Requirements:
-1. rustc 1.39.0-nightly (97e58c0d3 2019-09-20)
-2. exonum
-3. fantom
-
-For running nodes on your local machine
-1. cd backend
-2. cargo insstall --path .
-3. ./launch.sh %number of nodes%
-4. Open a browser at address stated in terminal
 
 Frontend:
 Для запуска в development mode:
@@ -79,6 +89,12 @@ Frontend:
 
 
 # Команда
+
+Демо:
+
+<a href="http://35.225.213.38/wizard">Личный кабинет поставщика</a>
+
+<a href="http://35.225.213.38/main">Личный кабинет заказчика</a>
 
 <a href="https://youtu.be/RNiuAhxZ-Cc">Видео-демонстрация решения</a>
 
